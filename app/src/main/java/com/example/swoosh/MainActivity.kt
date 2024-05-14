@@ -1,15 +1,20 @@
 package com.example.swoosh
 
-import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
-import com.example.swoosh.databinding.ActivityMainBinding
+import android.widget.TextView
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val getStartedBtn = findViewById<TextView>(R.id.nextBtn)
+
+        getStartedBtn.setOnClickListener {
+            val leagueIntent = Intent(this,LeagueActivity::class.java)
+            startActivity(leagueIntent)
+        }
     }
 }
