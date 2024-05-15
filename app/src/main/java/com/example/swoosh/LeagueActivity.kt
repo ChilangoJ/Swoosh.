@@ -3,17 +3,17 @@ package com.example.swoosh
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 
-class LeagueActivity : AppCompatActivity() {
+class LeagueActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
-        val nextBtn = findViewById<TextView>(R.id.nextBtn)
+    }
 
-        nextBtn.setOnClickListener {
-            val LeagueIntent = Intent(this,LeagueActivity::class.java)
-            startActivity(LeagueIntent)
-        }
+    fun LeagueNextClicked(view: View) {
+         val SkillActivity = Intent(this,SkillActivity::class.java)
+        startActivity(SkillActivity)
     }
 }
