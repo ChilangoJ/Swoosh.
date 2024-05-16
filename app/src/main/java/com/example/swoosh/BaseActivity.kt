@@ -1,11 +1,8 @@
 package com.example.swoosh
 
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.tabs.TabLayout.TabGravity
-import kotlin.math.log
+import androidx.appcompat.app.AppCompatActivity
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -44,4 +41,5 @@ open class BaseActivity : AppCompatActivity() {
         Log.d(TAG, "${javaClass.simpleName} OnDestroy")
         super.onDestroy()
     }
+
 }
