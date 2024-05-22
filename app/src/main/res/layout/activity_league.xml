@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LeagueActivity">
+    tools:context="Controller.LeagueActivity">
 
     <ImageView
         android:id="@+id/imageView7"
@@ -17,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/desiredleaguebg"/>
+        app:srcCompat="@drawable/desiredleaguebg"
+        android:contentDescription="@null" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -67,7 +68,8 @@
             android:textOff="@string/mens"
             android:textOn="@string/mens"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="OnClick" />
 
         <ToggleButton
             android:id="@+id/womensLeagueBtn"
@@ -83,7 +85,8 @@
             android:textOff="@string/womens"
             android:textOn="@string/womens"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="OnClick" />
 
         <ToggleButton
             android:id="@+id/coedLeagueBtn"
@@ -97,7 +100,8 @@
             android:textOff="@string/co_ed"
             android:textOn="@string/co_ed"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="OnClick" />
     </LinearLayout>
 
     <Button
@@ -115,5 +119,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick" />
 </androidx.constraintlayout.widget.ConstraintLayout>

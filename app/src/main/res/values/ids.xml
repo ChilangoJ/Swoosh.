@@ -2,4 +2,6 @@
 <resources>
     <item name="nextButton" type="id">@string/nextChecked</item>
     <item name="selectedLeagueTextView" type="id">selectedleagueChecked</item>
+    <item name="EXRA_LEAGUE" type="id">@extraleague</item>
+    <item name="toggleButton" type="id" />
 </resources>
