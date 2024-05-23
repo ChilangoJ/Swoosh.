@@ -1,60 +1,61 @@
 package Controller
 
 import Controller.FinishActivity
-import Utilities.EXRA_LEAGUE
-import Utilities.EXTRA_LEAGUE
-import Utilities.EXTRA_SKILL
+import Model.Player
+import Utilities.EXTRA_PLAYER
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.activity.result.contract.ActivityResultContracts
 import com.example.swoosh.R
-import com.example.swoosh.R.id.ballerSkillBtn
-import com.example.swoosh.R.id.beginnerSkillBtn
-import com.example.swoosh.R.id.selectedLeagueTextView
-import com.example.swoosh.R.id.skillFinishBtn
-import kotlinx.coroutines.selects.select
 import Controller.FinishActivity as ControllerFinishActivity
+
+fun text(s: String) {
+
+}
+
 
 class SkillActivity : BaseActivity() {
 
-    var league = ""
-    var skill = ""
+    lateinit var player: Player
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
+        player = intent.getParcelableExtra(EXTRA_PLAYER)!!
 
         val beginnerSkillBtn = findViewById<ToggleButton>(R.id.beginnerSkillBtn)
         val ballerSkillBtn = findViewById<ToggleButton>(R.id.ballerSkillBtn)
 
+        val searchLeagueText: TextView = findViewById(R.id.searchLeagueTxts)
+        searchLeagueText.text = "Lookiing for ${player.league} ${player.Skill} league near you..."
+
 
         beginnerSkillBtn.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                skill = "beginner"
+                player.Skill = "beginner"
                 ballerSkillBtn.isChecked = false
             } else if (!beginnerSkillBtn.isChecked && !ballerSkillBtn.isChecked) {
-                skill = ""
+                player.Skill = ""
 
             }
 
         }
         ballerSkillBtn.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                skill = "baller"
+                player.Skill = "baller"
                 beginnerSkillBtn.isChecked = false
 
             } else if (!ballerSkillBtn.isChecked && !beginnerSkillBtn.isChecked) {
-                skill = ""
+                player.Skill = ""
             }
             fun onSkillFinishClicked (view: View) {
-                if (skill != "") {
+                if (player.Skill != "") {
                     val FinishActivity = Intent(this, ControllerFinishActivity::class.java)
-                    FinishActivity.putExtra(EXTRA_LEAGUE, league)
-                    FinishActivity.putExtra(EXTRA_SKILL, skill)
+                    FinishActivity.putExtra(EXTRA_PLAYER, player)
                     startActivity(FinishActivity)
                 } else {
                     Toast.makeText(this, "Please select a skill level", Toast. LENGTH_SHORT).show()
@@ -72,6 +73,12 @@ class SkillActivity : BaseActivity() {
         }
 
         fun onBallerClick(view: View) {
+        }
+    }
+
+    companion object {
+        fun putExtra(extraPlayer: String, player: Player) {
+
         }
     }
 }

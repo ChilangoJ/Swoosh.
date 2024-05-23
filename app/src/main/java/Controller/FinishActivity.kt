@@ -16,6 +16,6 @@ class FinishActivity : BaseActivity() {
 
         val league = intent.getStringExtra(EXTRA_LEAGUE)
         val skill = intent.getStringExtra(EXTRA_SKILL)
-        
+
     }
 }
